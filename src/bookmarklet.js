@@ -51,21 +51,29 @@
       this.run();
     }
 
-    removeSubmission = (submission) => {
-      const removeElements = [
-        submission,
-        submission.nextSibling,
-        submission.nextSibling.nextSibling,
-      ];
+    run = () => {
+      const {
+        location: { href },
+      } = window;
 
-      for (const element of removeElements) {
-        element.remove();
+      if (
+        !this.urlPatterns.some((pattern) => {
+          return href.match(pattern);
+        })
+      ) {
+        return;
       }
 
-      this._removedCount++;
+      const submissions = Array.from(document.querySelectorAll(".submission"));
+
+      for (const submission of submissions) {
+        this._testSubmission(submission);
+      }
+
+      this._notify();
     };
 
-    notify = () => {
+    _notify = () => {
       if (!this.showNotification || this._removedCount === 0) {
         return;
       }
@@ -111,29 +119,21 @@
       }, timeout + transitionLength);
     };
 
-    run = () => {
-      const {
-        location: { href },
-      } = window;
+    _removeSubmission = (submission) => {
+      const removeElements = [
+        submission,
+        submission.nextSibling,
+        submission.nextSibling.nextSibling,
+      ];
 
-      if (
-        !this.urlPatterns.some((pattern) => {
-          return href.match(pattern);
-        })
-      ) {
-        return;
+      for (const element of removeElements) {
+        element.remove();
       }
 
-      const submissions = Array.from(document.querySelectorAll(".submission"));
-
-      for (const submission of submissions) {
-        this.testSubmission(submission);
-      }
-
-      this.notify();
+      this._removedCount++;
     };
 
-    testSubmission = (submission) => {
+    _testSubmission = (submission) => {
       const title = submission.querySelector(".titleline > a")?.textContent;
 
       if (!title) {
@@ -148,7 +148,7 @@
         return;
       }
 
-      this.removeSubmission(submission);
+      this._removeSubmission(submission);
     };
   }
 

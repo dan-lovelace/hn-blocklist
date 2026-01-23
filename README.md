@@ -2,7 +2,11 @@
 
 A bookmarklet for removing unwanted posts from Hacker News.
 
-## Method 1: Drag and Drop
+[View the source code](./src/bookmarklet.js)
+
+## Installation
+
+### Method 1: Drag and Drop
 
 1. Visit
    [https://dan-lovelace.github.io/hn-blocklist/](https://dan-lovelace.github.io/hn-blocklist/)
@@ -12,7 +16,7 @@ A bookmarklet for removing unwanted posts from Hacker News.
    <!-- BOOKMARKLET-ANCHOR-END -->
 1. Click the bookmark any time you visit Hacker News
 
-## Method 2: Manual Bookmark
+### Method 2: Manual Bookmark
 
 1. Copy this snippet:
    <!-- BOOKMARKLET-SNIPPET-START -->
