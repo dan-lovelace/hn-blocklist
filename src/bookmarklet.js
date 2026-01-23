@@ -44,7 +44,7 @@
     urlPatterns = [/news\.ycombinator\.com/i];
 
     constructor({ removePatterns, showNotification, urlPatterns } = {}) {
-      this.remove = removePatterns ?? this.removePatterns;
+      this.removePatterns = removePatterns ?? this.removePatterns;
       this.showNotification = showNotification ?? this.showNotification;
       this.urlPatterns = urlPatterns ?? this.urlPatterns;
 
@@ -124,7 +124,7 @@
         submission,
         submission.nextSibling,
         submission.nextSibling.nextSibling,
-      ];
+      ].filter(Boolean);
 
       for (const element of removeElements) {
         element.remove();
