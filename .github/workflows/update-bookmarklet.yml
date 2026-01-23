@@ -34,16 +34,35 @@ jobs:
 
           # Update README.md between markers
           awk -v link="$BOOKMARKLET_LINK" '
-          /<!-- BOOKMARKLET-START -->/ {
+          /<!-- BOOKMARKLET-ANCHOR-START -->/ {
             print
-            print "   ```"
-            print "   " link
-            print "   ```"
+            print "<a href=\"" link "\">🔗 HN Blocker</a>"
+            print ""
+            print "_👆 Drag this link to your bookmarks bar_"
             skip=1
             next
           }
-          /<!-- BOOKMARKLET-END -->/ {
+          /<!-- BOOKMARKLET-ANCHOR-END -->/ {
             skip=0
+            print
+            next
+          }
+          !skip
+          ' README.md > README.tmp && mv README.tmp README.md
+
+          awk -v link="$BOOKMARKLET_LINK" '
+          /<!-- BOOKMARKLET-SNIPPET-START -->/ {
+            print
+            print "```"
+            print "   " link
+            print "```"
+            skip=1
+            next
+          }
+          /<!-- BOOKMARKLET-SNIPPET-END -->/ {
+            skip=0
+            print
+            next
           }
           !skip
           ' README.md > README.tmp && mv README.tmp README.md
