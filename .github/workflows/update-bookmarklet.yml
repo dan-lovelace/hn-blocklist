@@ -1,0 +1,55 @@
+name: Update README with Bookmarklet
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "src/bookmarklet.js"
+  workflow_dispatch:
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Generate bookmarklet and update README
+        run: |
+          # Read the bookmarklet source
+          BOOKMARKLET_SRC=$(cat src/bookmarklet.js)
+
+          # Remove newlines and compress to single line
+          BOOKMARKLET_COMPRESSED=$(echo "$BOOKMARKLET_SRC" | tr -d '\n' | tr -s ' ')
+
+          # URL encode the bookmarklet
+          BOOKMARKLET_ENCODED=$(node -e "console.log(encodeURIComponent(process.argv[1]))" "$BOOKMARKLET_COMPRESSED")
+
+          # Create the bookmarklet link
+          BOOKMARKLET_LINK="javascript:$BOOKMARKLET_ENCODED"
+
+          # Update README.md between markers
+          awk -v link="$BOOKMARKLET_LINK" '
+          /<!-- BOOKMARKLET-START -->/ {
+            print
+            print "<a href=\"" link "\">🔗 HN Blocklist</a>"
+            print ""
+            print "_👆 Drag this link to your bookmarks bar_"
+            skip=1
+            next
+          }
+          /<!-- BOOKMARKLET-END -->/ {
+            skip=0
+          }
+          !skip
+          ' README.md > README.tmp && mv README.tmp README.md
+
+      - name: Commit changes
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git diff --quiet README.md || (git add README.md && git commit -m "chore: update bookmarklet in README [skip ci]" && git push)
