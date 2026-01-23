@@ -35,10 +35,9 @@ jobs:
           # Update README.md between markers
           awk -v link="$BOOKMARKLET_LINK" '
           /<!-- BOOKMARKLET-START -->/ {
-            print
-            print "```"
+            print "   ```"
             print link
-            print "```"
+            print "   ```"
             skip=1
             next
           }
