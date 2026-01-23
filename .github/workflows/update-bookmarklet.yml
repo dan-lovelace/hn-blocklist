@@ -36,7 +36,7 @@ jobs:
           awk -v link="$BOOKMARKLET_LINK" '
           /<!-- BOOKMARKLET-START -->/ {
             print "   ```"
-            print link
+            print "   " link
             print "   ```"
             skip=1
             next
