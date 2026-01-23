@@ -2,7 +2,7 @@
 
 A bookmarklet for removing unwanted posts from Hacker News.
 
-[View the source code](./src/bookmarklet.js)
+[View the source code](https://github.com/dan-lovelace/hn-blocklist/blob/main/src/bookmarklet.js)
 
 ## Installation
 
