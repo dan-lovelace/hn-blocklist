@@ -1,3 +1,5 @@
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
 # HN Blocklist
 
 A bookmarklet for removing unwanted posts from Hacker News.
