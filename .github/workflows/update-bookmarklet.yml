@@ -36,9 +36,9 @@ jobs:
           awk -v link="$BOOKMARKLET_LINK" '
           /<!-- BOOKMARKLET-START -->/ {
             print
-            print "<a href=\"" link "\">🔗 HN Blocklist</a>"
-            print ""
-            print "_👆 Drag this link to your bookmarks bar_"
+            print "   ```"
+            print "   " link
+            print "   ```"
             skip=1
             next
           }
