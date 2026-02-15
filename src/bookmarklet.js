@@ -4,6 +4,7 @@
 
     removePatterns = [
       /\bagent[s]?\b/gi,
+      /agentic/gi,
       /\bAI\b/g,
       /anthropic/gi,
       /artificial intelligence/gi,
@@ -16,6 +17,7 @@
       /diffusion/gi,
       /\bembedding[s]?\b/gi,
       /\bgemini\b/gi,
+      /clawd/gi,
       /generative/gi,
       /GPT/g,
       /\bfoundation model/gi,
@@ -28,8 +30,9 @@
       /\bmistral\b/gi,
       /\bML\b/g,
       /\bmodels?\b/gi,
+      /moltbot/gi,
       /neural/gi,
-      /\bOpenAI\b/gi,
+      /OpenAI/gi,
       /\bperplexity\b/gi,
       /prompt[s]?\b/gi,
       /\bRAG\b/g,
@@ -37,6 +40,7 @@
       /\btokens?\b/gi,
       /\btransformer[s]?\b/gi,
       /\bvector database/gi,
+      /vibe ?code?/gi,
     ];
 
     showNotification = true;
