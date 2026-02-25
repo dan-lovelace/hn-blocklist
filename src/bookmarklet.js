@@ -5,7 +5,7 @@
     removePatterns = [
       /\bagent[s]?\b/gi,
       /agentic/gi,
-      /\bAI\b/g,
+      /\bAIs?\b/g,
       /anthropic/gi,
       /artificial intelligence/gi,
       /\bChatGPT\b/gi,
