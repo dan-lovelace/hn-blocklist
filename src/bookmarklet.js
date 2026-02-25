@@ -26,6 +26,7 @@
       /\bllama\b/gi,
       /LLM[s]?/g,
       /machine learning/gi,
+      /\bMCP\b/g,
       /\bmidjourney\b/gi,
       /\bmistral\b/gi,
       /\bML\b/g,
