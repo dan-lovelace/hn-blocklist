@@ -34,6 +34,7 @@
       /moltbot/gi,
       /neural/gi,
       /OpenAI/gi,
+      /openclaw/gi,
       /\bperplexity\b/gi,
       /prompt[s]?\b/gi,
       /\bRAG\b/g,
