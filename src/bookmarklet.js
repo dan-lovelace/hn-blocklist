@@ -3,6 +3,7 @@
     _removedCount = 0;
 
     removePatterns = [
+      /\.ai\)/g,
       /\bagent[s]?\b/gi,
       /agentic/gi,
       /\bAIs?\b/g,
@@ -10,6 +11,8 @@
       /artificial intelligence/gi,
       /\bChatGPT\b/gi,
       /claude/gi,
+      /Codex/g,
+      /\bcodex\b/gi,
       /\bcopilot\b/gi,
       /\bCursor\b/g,
       /\bDALL-?E\b/gi,
