@@ -38,6 +38,7 @@
       /neural/gi,
       /OpenAI/gi,
       /openclaw/gi,
+      /\bopus\b/gi,
       /\bperplexity\b/gi,
       /prompt[s]?\b/gi,
       /\bRAG\b/g,
