@@ -36,6 +36,7 @@
       /\bML\b/g,
       /\bmodels?\b/gi,
       /moltbot/gi,
+      /mythos/gi,
       /neural/gi,
       /OpenAI/gi,
       /openclaw/gi,
