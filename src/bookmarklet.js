@@ -7,6 +7,7 @@
       /\bagent[s]?\b/gi,
       /agentic/gi,
       /\bAIs?\b/g,
+      /a\.i\./gi,
       /anthropic/gi,
       /artificial intelligence/gi,
       /\bChatGPT\b/gi,
