@@ -9,6 +9,7 @@
       /\bAIs?\b/g,
       /a\.i\./gi,
       /anthropic/gi,
+      /apple intelligence/gi,
       /artificial intelligence/gi,
       /\bChatGPT\b/gi,
       /claude/gi,
