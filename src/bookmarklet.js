@@ -44,6 +44,7 @@
       /\bopus\b/gi,
       /\bperplexity\b/gi,
       /prompt[s]?\b/gi,
+      /qwen/gi,
       /\bRAG\b/g,
       /simonwillison/g,
       /\bstable diffusion\b/gi,
